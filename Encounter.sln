@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncounterService", "EncounterService\EncounterService.csproj", "{4E5BFE77-2362-4655-BC98-B0725826618C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncounterServiceTest", "EncounterServiceTest\EncounterServiceTest.csproj", "{B0E3D862-A90E-4335-9F83-5E7BC5D9F0A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E5BFE77-2362-4655-BC98-B0725826618C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E5BFE77-2362-4655-BC98-B0725826618C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E5BFE77-2362-4655-BC98-B0725826618C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E5BFE77-2362-4655-BC98-B0725826618C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E3D862-A90E-4335-9F83-5E7BC5D9F0A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E3D862-A90E-4335-9F83-5E7BC5D9F0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E3D862-A90E-4335-9F83-5E7BC5D9F0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E3D862-A90E-4335-9F83-5E7BC5D9F0A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.StandardHeader = $2
+	EndGlobalSection
+EndGlobal
