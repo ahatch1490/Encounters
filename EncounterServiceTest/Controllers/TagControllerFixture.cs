@@ -1,4 +1,5 @@
 ﻿using System;
+using Xunit; 
 
 namespace EncounterServiceTest.Controllers
 {
@@ -6,6 +7,9 @@ namespace EncounterServiceTest.Controllers
     {
         public TagControllerFixture()
         {
+           
         }
+        
+       
     }
 }

@@ -21,7 +21,7 @@ namespace EncounterService.Controllers
         [HttpGet]
         public List<Tag> Get(string searchParams)
         {
-			return _context.Tags.Where(x => EF.Functions.ILike(x.Name, searchParams)).ToList(); 
+			return _context.Tags.Where(x => EF.Functions.ILike(x.Name, $"%{searchParams}%")).ToList(); 
         }
 
         // GET api/values/5

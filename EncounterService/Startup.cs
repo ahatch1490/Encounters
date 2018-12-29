@@ -13,6 +13,7 @@ using Npgsql;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;  
 using EncounterService.Models;
+using AspNetCore.RouteAnalyzer; 
 namespace EncounterService
 {
     public class Startup
@@ -31,7 +32,7 @@ namespace EncounterService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-           
+            services.AddRouteAnalyzer();
 			var connectionString = Configuration["DbContextSettings:ConnectionString"];
             
 			services.AddDbContext<EncounterContext>(
@@ -52,6 +53,12 @@ namespace EncounterService
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseMvc(routes =>
+            {
+                routes.MapRouteAnalyzer("/routes"); 
+                   
+            });
 
             
             app.UseMvc();
