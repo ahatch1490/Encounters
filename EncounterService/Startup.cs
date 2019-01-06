@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using EncounterService.Models;
 using AspNetCore.RouteAnalyzer;
 using EncounterService.Models.Interfaces;
+using Marten;
 
 namespace EncounterService
 {
@@ -46,6 +48,10 @@ namespace EncounterService
             );
             
 			services.AddScoped<IEncounterRepository,EncounterRepository>();
+
+            services.AddScoped<IDocumentStore>(provider =>
+                DocumentStore.For(Configuration["DbContextSettings:ConnectionString"])); 
+       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +70,8 @@ namespace EncounterService
 
             
             app.UseMvc();
+            
+           
         }
     }
 }
