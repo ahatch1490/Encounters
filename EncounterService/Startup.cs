@@ -13,7 +13,9 @@ using Npgsql;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;  
 using EncounterService.Models;
-using AspNetCore.RouteAnalyzer; 
+using AspNetCore.RouteAnalyzer;
+using EncounterService.Models.Interfaces;
+
 namespace EncounterService
 {
     public class Startup
@@ -43,7 +45,7 @@ namespace EncounterService
               opts => opts.UseNpgsql(connectionString)
             );
             
-			services.AddScoped<EncounterRepository,EncounterRepository>();
+			services.AddScoped<IEncounterRepository,EncounterRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

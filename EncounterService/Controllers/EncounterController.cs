@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EncounterService.Models;
+using EncounterService.Models.Interfaces;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,23 +15,23 @@ namespace EncounterService.Controllers
 	[Route("api/[controller]")]
 	public class EncounterController : Controller
 	{
-		private readonly EncounterContext _context;
-		EncounterController(EncounterContext context)
+		private readonly IEncounterRepository _repo;
+		public EncounterController(IEncounterRepository repo)
 		{
-			_context = context;
+			_repo = repo;
 		}
 		// GET: api/values
 		[HttpGet]
-		public List<Encounter> Get()
+		public ICollection<Encounter> Get()
 		{
-			return _context.Encounters.ToList();
+			return _repo.SearchEncountersByTitle(""); 
 		}
 
-		[HttpGet("searchTerm")]
-		// GET api/search/"searchTerm" 
+		[HttpGet("search")]
+		// GET api/search/ 
 		public ICollection<Encounter> Search(string searchTerm)
 		{
-			return _context.Encounters.Where(x => EF.Functions.ILike(x.title, searchTerm)).ToList(); 
+			return _repo.SearchEncountersByTitle(searchTerm);
 		}
 
 
@@ -37,30 +39,28 @@ namespace EncounterService.Controllers
         [HttpGet("{id}")]
 		public Encounter Get(int id)
         {
-			return _context.Encounters.First(e => e.id == id); 
+	        return _repo.GetEncounter(id); 
         }
 
         // POST api/values
         [HttpPost]
-        public async Task Post(Encounter encounter)
+        public  void Post(Encounter encounter)
         {
-			var e = await _context.Encounters.AddAsync(encounter);
-			await  _context.SaveChangesAsync(); 
+	         _repo.UpdateEncounter(encounter); 
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(Encounter encounter)
         {
-			_context.Encounters.Update(encounter); 
+	        _repo.UpdateEncounter(encounter); 
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-			var e = _context.Encounters.First(x => x.id == id);
-			_context.Encounters.Remove(e); 
+	        _repo.DeleteEncounter(id); 
         }
     }
 }

@@ -1,16 +1,22 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Data;
+using EncounterService.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
+
 namespace EncounterService.Models
 {
-	public class EncounterRepository
-    {
+
+	public class EncounterRepository : IEncounterRepository
+	{
 		public EncounterRepository() { }
 		private readonly EncounterContext _encounterContext;
+		private readonly IDbConnection _dbConnection; 
 
         public EncounterRepository(EncounterContext context)
         {
             _encounterContext = context;
+	        
         }
 
 		public Encounter GetEncounter(int id)
@@ -20,7 +26,9 @@ namespace EncounterService.Models
 
 		public ICollection<Encounter>SearchEncountersByTitle(string searchParam)
 		{
-			return _encounterContext.Encounters.Where(x => EF.Functions.ILike(x.title, searchParam)).ToList();
+			//var connection = _encounterContext.Database.GetDbConnection();
+			var search = new EncounterSearch();
+			return search.SearchFor(_encounterContext.Encounters, searchParam);
 		}
 
         public Encounter UpdateEncounter(Encounter encounter)
