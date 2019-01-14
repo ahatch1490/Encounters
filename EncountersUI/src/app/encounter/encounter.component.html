@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-1">
+        <span class="badge badge-pill badge-primary">{{encounter.Id}}</span>
+      </div>
+      <div class="col-11">
+        {{encounter.title}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-unstyled list-inline list">
+          <li *ngFor="let tag of encounter.Tags" class="list-inline-item">
+            <span class="badge badge-pill badge-primary">{{tag}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+</div>

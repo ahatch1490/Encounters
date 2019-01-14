@@ -1,0 +1,8 @@
+<h2>
+  Encounter List
+</h2>
+<ul class="list-unstyled">
+  <li *ngFor="let encounter of Encounters" >
+    <app-encounter [encounter]="encounter" ></app-encounter>
+  </li>
+</ul>
