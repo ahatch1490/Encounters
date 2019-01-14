@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, Input, OnInit} from '@angular/core';
 import { Encounter} from '../encounter';
 import { EncountersService} from '../encounters.service';
 
@@ -14,7 +14,9 @@ export class EncounterSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchData(paramater: string ) {
+  searchData(input: HTMLInputElement ) {
+    let paramater: string;
+    paramater = input.value;
     this.Results =   this.encounterService.searchEncounters(paramater);
   }
 

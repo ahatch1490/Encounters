@@ -35,9 +35,11 @@ export class EncountersService {
 
   searchEncounters(paramater: string): Encounter[] {
     const encounters: Encounter[] = [];
-    const regex = /parameter/;
+    console.log(paramater);
+    const reg = new RegExp(paramater);
+
     for (let def of ENCOUNTERS) {
-      if (regex.test(def.title)) {
+        if (reg.test(def.title)) {
         encounters.push(def); }}
       return encounters;
   }

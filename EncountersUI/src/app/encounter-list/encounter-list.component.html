@@ -1,8 +1,34 @@
 <h2>
   Encounter List
 </h2>
-<ul class="list-unstyled">
-  <li *ngFor="let encounter of Encounters" >
-    <app-encounter [encounter]="encounter" ></app-encounter>
-  </li>
-</ul>
+<div *ngIf="Encounters">
+  <ul class="list-unstyled">
+    <li *ngFor="let encounter of Encounters" >
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-1">
+              <button class="btn btn-info" onclick="viewEncounter"> edit </button>
+            </div>
+            <div class="col-1">
+              <span class="badge badge-pill badge-primary">{{encounter.Id}}</span>
+            </div>
+            <div class="col-10">
+              {{encounter.title}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <ul class="list-unstyled list-inline list">
+                <li *ngFor="let tag of encounter.Tags" class="list-inline-item">
+                  <span class="badge badge-pill badge-primary">{{tag}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+

@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Encounter } from '../encounter';
-import {EncounterComponent} from '../encounter/encounter.component';
-import { EncountersService } from '../encounters.service';
 
 @Component({
   selector: 'app-encounter-list',
@@ -9,12 +7,10 @@ import { EncountersService } from '../encounters.service';
   styleUrls: ['./encounter-list.component.scss']
 })
 export class EncounterListComponent implements OnInit {
-  public Encounters: Encounter[];
-
-  constructor(private encounterService: EncountersService  ) { }
+  @Input() Encounters: Encounter[];
+  constructor( ) { }
 
   ngOnInit(): void {
-    this.Encounters = this.encounterService.getEncounters();
   }
 
 }
