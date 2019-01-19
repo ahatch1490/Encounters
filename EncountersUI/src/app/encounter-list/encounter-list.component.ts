@@ -8,9 +8,10 @@ import { Encounter } from '../encounter';
 })
 export class EncounterListComponent implements OnInit {
   @Input() Encounters: Encounter[];
-  constructor( ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
