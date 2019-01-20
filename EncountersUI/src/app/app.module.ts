@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import { EncounterComponent } from './encounter/encounter.component';
 import { EncounterListComponent } from './encounter-list/encounter-list.component';
 import { EncounterSearchComponent } from './encounter-search/encounter-search.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EncounterModalComponent } from './encounter/encounter-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+import {FormsModule} from '@angular/forms';
+import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,14 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    Angular2FontawesomeModule
+    Angular2FontawesomeModule,
+    FormsModule,
+    SimplemdeModule.forRoot({
+      provide: SIMPLEMDE_CONFIG,
+      // config options 1
+      useValue: {}
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent],

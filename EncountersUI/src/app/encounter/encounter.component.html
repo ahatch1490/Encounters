@@ -5,7 +5,7 @@
         <span class="badge badge-pill badge-primary">{{encounter.Id}}</span>
       </div>
       <div class="col-11">
-        {{encounter.title}}
+        <input [(ngModel)]="encounter.title" placeholder="title">
       </div>
     </div>
     <div class="row">
@@ -19,6 +19,6 @@
     </div>
   </div>
   <div class="card-body">
-    {{encounter.Description}}
+    <simplemde [(ngModel)]="encounter.Description"  [codemirror]="{ lineNumbers: true }"></simplemde>
   </div>
 </div>
