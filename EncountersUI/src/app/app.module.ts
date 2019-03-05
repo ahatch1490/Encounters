@@ -9,7 +9,9 @@ import { EncounterModalComponent } from './encounter/encounter-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 import {FormsModule} from '@angular/forms';
-import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
+import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
+import { EncounterTableComponent } from './encounter-table/encounter-table.component';
+import { EncounterTableSearchComponent } from './encounter-table-search/encounter-table-search.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
     EncounterComponent,
     EncounterListComponent,
     EncounterSearchComponent,
-    EncounterModalComponent
+    EncounterModalComponent,
+    EncounterTableComponent,
+    EncounterTableSearchComponent
   ],
   imports: [
     BrowserModule,

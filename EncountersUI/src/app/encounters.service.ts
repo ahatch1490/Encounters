@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Encounter} from './encounter';
 import { Observable, of } from 'rxjs';
+import {EncounterTable} from './encounter-table';
 
 export const ENCOUNTERS: Encounter[] = [
   {Id: 1, title: 'title1', Description: 'this is a description for title1', Tags: ['tag1', 'tag2']},
@@ -12,7 +13,11 @@ export const ENCOUNTERS: Encounter[] = [
   {Id: 7, title: 'title7', Description: 'this is a description for title1', Tags: ['tag1', 'tag2']}
   ];
 
-
+export const ENCOUNTER_TABLES:  EncounterTable[] = [
+  { Id: 12, title: 'Encounter1', Description: 'Test Table1', Tags: [ 'tag1', 'tag2'], Encounters: ENCOUNTERS },
+  { Id: 13, title: 'Encounter2', Description: 'Test Table2', Tags: [ 'tag1', 'tag2'], Encounters: ENCOUNTERS },
+  { Id: 14, title: 'Encounter3', Description: 'Test Table3', Tags: [ 'tag1', 'tag2'], Encounters: ENCOUNTERS },
+  ];
 
 @Injectable({
   providedIn: 'root'
@@ -35,12 +40,24 @@ export class EncountersService {
 
   searchEncounters(paramater: string): Encounter[] {
     const encounters: Encounter[] = [];
-    console.log(paramater);
     const reg = new RegExp(paramater);
 
     for (let def of ENCOUNTERS) {
         if (reg.test(def.title)) {
         encounters.push(def); }}
       return encounters;
+  }
+  getEncounterTables(paramater): EncounterTable[] {
+    const encounterTables: EncounterTable[] = [];
+    const reg = new RegExp(paramater);
+
+    for (let def of ENCOUNTER_TABLES) {
+      for (let tag of def.Tags) {
+        if (reg.test(tag)) {
+          encounterTables.push(def);
+        }
+      }
+    }
+    return encounterTables;
   }
 }
