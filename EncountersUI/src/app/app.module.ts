@@ -11,7 +11,8 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import {FormsModule} from '@angular/forms';
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
 import { EncounterTableComponent } from './encounter-table/encounter-table.component';
-import { EncounterTableSearchComponent } from './encounter-table-search/encounter-table-search.component'
+import { EncounterTableSearchComponent } from './encounter-table-search/encounter-table-search.component';
+import { EncounterTableListComponent } from './encounter-table-list/encounter-table-list.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EncounterTableSearchComponent } from './encounter-table-search/encounte
     EncounterSearchComponent,
     EncounterModalComponent,
     EncounterTableComponent,
-    EncounterTableSearchComponent
+    EncounterTableSearchComponent,
+    EncounterTableListComponent
   ],
   imports: [
     BrowserModule,
