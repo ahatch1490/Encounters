@@ -32,7 +32,7 @@ export class EncountersService {
   }
 
   getEncounter(Id: number): Encounter {
-    for (let def of ENCOUNTERS) {
+    for (const def of ENCOUNTERS) {
       if (def.Id === Id ) {
         return def; }}
     return null;
@@ -42,7 +42,7 @@ export class EncountersService {
     const encounters: Encounter[] = [];
     const reg = new RegExp(paramater);
 
-    for (let def of ENCOUNTERS) {
+    for (const def of ENCOUNTERS) {
         if (reg.test(def.title)) {
         encounters.push(def); }}
       return encounters;
@@ -51,13 +51,23 @@ export class EncountersService {
     const encounterTables: EncounterTable[] = [];
     const reg = new RegExp(paramater);
 
-    for (let def of ENCOUNTER_TABLES) {
-      for (let tag of def.Tags) {
+    for (const def of ENCOUNTER_TABLES) {
+      for (const tag of def.Tags) {
         if (reg.test(tag)) {
           encounterTables.push(def);
         }
       }
     }
+    return encounterTables;
+  }
+
+  searchEncounterTables(parameter: string): EncounterTable[] {
+    const encounterTables: EncounterTable[] = [];
+    const reg = new RegExp(parameter);
+
+    for (const def of ENCOUNTER_TABLES) {
+      if (reg.test(def.title)) {
+        encounterTables.push(def); }}
     return encounterTables;
   }
 }

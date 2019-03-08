@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {EncountersService} from '../encounters.service';
+import {EncounterTable} from '../encounter-table';
 
 @Component({
   selector: 'app-encounter-table-search',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncounterTableSearchComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( private encounterService: EncountersService ) { }
+  Results: EncounterTable[] = [];
   ngOnInit() {
+  }
+
+  searchData(input: HTMLInputElement) {
+    let parameter: string;
+    this.Results = this.encounterService.searchEncounterTables(parameter);
   }
 
 }
