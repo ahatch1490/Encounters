@@ -16,6 +16,7 @@ export class EncounterTableSearchComponent implements OnInit {
 
   searchData(input: HTMLInputElement) {
     let parameter: string;
+    parameter = input.value;
     this.Results = this.encounterService.searchEncounterTables(parameter);
   }
 

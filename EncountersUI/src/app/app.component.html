@@ -1,8 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav>
-  <a routerLink="/encounter-list">Encounters</a>
-  <a routerLink="/encounter-search">Search For Encounter</a>
-  <a routerLink="/encounter-table-search">Encounter Tables</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <ul class="navbar-nav  mr-auto">
+    <li class="nav-item">
+  <a class="nav-link" routerLink="/encounter-list">Encounters</a>
+    </li>
+    <li class="nav-item">
+  <a class="nav-link" routerLink="/encounter-search">Search For Encounter</a>
+    </li>
+    <li class="nav-item">
+  <a class="nav-link" routerLink="/encounter-table-search">Encounter Tables</a>
+  </li>
+  </ul>
 </nav>
 <div class="container-fluid">
   <router-outlet></router-outlet>

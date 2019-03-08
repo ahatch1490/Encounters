@@ -15,9 +15,9 @@ export class EncounterSearchComponent implements OnInit {
   }
 
   searchData(input: HTMLInputElement ) {
-    let paramater: string;
-    paramater = input.value;
-    this.Results =   this.encounterService.searchEncounters(paramater);
+    let parameter: string;
+    parameter = input.value;
+    this.Results =   this.encounterService.searchEncounters(parameter);
   }
 
 }

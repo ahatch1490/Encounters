@@ -1,3 +1,16 @@
-<p>
-  encounter-table-search works!
-</p>
+<nav>
+  <div class="row">
+    <div class="col-5">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  #search>
+    </div>
+    <div class="col-7">
+      <button class="btn btn-outline-success" (click)="searchData(search)" >Search</button>
+    </div>
+  </div>
+</nav>
+<div class="card">
+  <div class="card-body">
+    <app-encounter-table-list  [encounterTables]="Results" ></app-encounter-table-list>
+  </div>
+</div>
+

@@ -1,3 +1,36 @@
-<p>
-  encounter-table-list works!
-</p>
+<h2>
+  Encounter Tables
+</h2>
+<div *ngIf="encounterTables">
+  <ul class="list-unstyled">
+    <li *ngFor="let encounterTable of encounterTables" >
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-1">
+<!--
+              <app-modal-encounter [encounterTable]="encounterTable"></app-modal-encounter>
+-->
+            </div>
+            <div class="col-1">
+              <span class="badge badge-pill badge-primary">{{encounterTable.Id}}</span>
+            </div>
+            <div class="col-10">
+              {{encounterTable.title}}
+            </div>
+          </div>
+          <!--<div class="row">-->
+            <!--<div class="col-12">-->
+              <!--<ul class="list-unstyled list-inline list">-->
+                <!--<li *ngFor="let tag of encounterTable.Tags" class="list-inline-item">-->
+                  <!--<span class="badge badge-pill badge-primary">{{tag}}</span>-->
+                <!--</li>-->
+              <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+

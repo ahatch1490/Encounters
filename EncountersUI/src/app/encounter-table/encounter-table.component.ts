@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {EncounterTable} from '../encounter-table';
 
 @Component({
   selector: 'app-encounter-table',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encounter-table.component.scss']
 })
 export class EncounterTableComponent implements OnInit {
-
+  @Input() encounterTable: EncounterTable;
   constructor() { }
 
   ngOnInit() {
